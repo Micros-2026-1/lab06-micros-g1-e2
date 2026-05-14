@@ -12,7 +12,8 @@
  *[Laura Katerin Sanchez](https://github.com/laurakasanchezgu-oss)
 
 ## Documentación
-En esta práctica de laboratorio se implementó el control de una pantalla LCD 16x2 mediante comunicación I2C utilizando un microcontrolador. A diferencia del modo paralelo tradicional, el uso del módulo I2C permite reducir significativamente la cantidad de pines necesarios, optimizando así los recursos del microcontrolador.Se empleó un adaptador I2C para la LCD, el cual convierte la comunicación serial en señales paralelas entendibles por la pantalla. Esto facilita la conexión y simplifica el cableado. Durante el desarrollo, se configuraron los registros necesarios del microcontrolador para habilitar la comunicación I2C, y se utilizaron funciones específicas para enviar datos y comandos a la pantalla,El sistema permite mostrar texto dinámico en la LCD, incluyendo mensajes personalizados y valores numéricos, como por ejemplo porcentajes.
+En esta práctica se implementó el control de una pantalla LCD 16x2 mediante comunicación I2C con un microcontrolador, lo que permitió reducir el uso de pines y simplificar el cableado gracias al uso de un adaptador I2C. Se configuraron los registros necesarios y se desarrollaron funciones para enviar datos y mostrar información en la pantalla, como mensajes y porcentajes, Además, se trabajó con la comunicación serial UART entre un microcontrolador PIC y un computador, permitiendo el envío de datos para su visualización en una gráfica en Python. Esto facilitó el análisis del comportamiento de señales en función del tiempo;En conjunto, la práctica permitió comprender el funcionamiento de los protocolos I2C y UART, así como su aplicación en la visualización y transmisión de datos.
+
 
 ## Objetivos
 ### Objetivo general
@@ -21,15 +22,79 @@ Desarrollar un sistema de visualización utilizando una pantalla LCD 16x2 con co
 
 ### Objetivos especificos
 
+-Comprender el funcionamiento de la comunicación UART.
+
+-Configurar la transmisión serial entre el PIC y el computador.
+
+-Visualizar información en una pantalla LCD.
+
+-Recibir datos seriales en Python.
+
+-Generar una gráfica de voltaje vs tiempo.
+
+-Analizar el comportamiento de la señal transmitida.
+
+## Procedimiento
+
+Se realizó la conexión del microcontrolador PIC con la pantalla LCD sobre la protoboard.
+
+Se configuró la comunicación UART utilizando los pines TX y RX del microcontrolador.
+
+Se programó el PIC para enviar datos seriales continuamente al computador.
+
+Se conectó el módulo USB-UART al computador para permitir la transmisión serial.
+
+En Python se configuró la lectura de datos enviados mediante UART.
+
+Se generó una gráfica de voltaje contra tiempo utilizando los datos recibidos.
+
+Finalmente, se analizó el comportamiento de la señal obtenida.
+
+## Diagramas interno
+
+<img width="1228" height="573" alt="image" src="https://github.com/user-attachments/assets/eb408e14-c34e-405d-b64f-56f0e7a55054" />
 
 
 
+Activación del puerto serie (RCSTA_bit7_R/W): 1→Habilitado, 0→ Deshabilitado.
+
+Habilitación de transmisión (TXTA_bit5_R/W): 1→Habilitado, 0→ Deshabilitado.
+
+Determinar el divisor del reloj para establecer la velocidad de baudios.
+
+Dato a transmitir.
+
+Registro de desplazamiento interno. Es el registro interno al que el hardware del UART transfiere los datos del buffer TXREG para luego enviarlos bit a bit por la línea TX.
+
+Estado del registro TSR (TXSTA_bit1_R): 1→Vacío, 0→ Lleno.
+
+Noveno bit a transmitir (TXSTA_bit0_W). Bit de paridad.
+
+Habilitación del noveno bit (TXSTA_bit6_R/W): 1→Habilitado, 0→ Deshabilitado.
+
+Habilitación de interrupción de transmisión (PIE1_bit4_R/W): 1→Habilitado, 0→ Deshabilitado.
+
+Flag de interrupción de transmisión (PIR1_bit4_R/W): 1→Buffer de datos vacío, 0→ Deshabilitado.
+
+## Diagramas del montaje 
+
+<img width="1389" height="1132" alt="image" src="https://github.com/user-attachments/assets/226d9863-49e4-4f20-8f71-b12fe70920fa" />
 
 
 
-## Diagramas
+Durante el desarrollo del proyecto se realizó correctamente el montaje de un sistema de comunicación UART utilizando el microcontrolador PIC18f45k22, una pantalla LCD 16x2 y un módulo USB-TTL sobre protoboard. Se logró establecer la comunicación serial entre el microcontrolador y el computador, permitiendo transmitir y visualizar información de manera adecuada.
 
-## Evidencias de implementación
+Además, la pantalla LCD mostró correctamente los mensajes programados, demostrando el funcionamiento adecuado de las conexiones y de la configuración del microcontrolador. El uso del protocolo UART permitió enviar datos de forma simple y eficiente mediante los pines TX y RX.
+## Diagrama en python 
+
+<img width="1628" height="966" alt="image" src="https://github.com/user-attachments/assets/ce5c6440-fe3e-4f47-8a88-926a2cf76572" />
+
+
+Por otra parte, la gráfica obtenida permitió analizar el comportamiento de la señal transmitida. Se observó una variación periódica del voltaje entre 0V y 5V con forma de diente de sierra, lo cual indica que el sistema estaba generando y enviando datos continuamente durante el tiempo de prueba.
+
+Este proyecto permitió comprender de manera práctica el funcionamiento de la comunicación serial UART, la conexión de dispositivos electrónicos en protoboard y el uso de pantallas LCD para visualizar información. También ayudó a fortalecer conocimientos sobre programación de microcontroladores, transmisión de datos y análisis de señales eléctricas mediante gráficas.
+
+Finalmente, se concluye que el sistema funcionó correctamente, cumpliendo con los objetivos propuestos y demostrando la importancia de la comunicación serial en aplicaciones electrónicas y sistemas
 ## Documentacion del codigo
 ## Configuración del microcontrolador (MAIN)
 
