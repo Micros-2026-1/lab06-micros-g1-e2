@@ -12,6 +12,16 @@
  *[Laura Katerin Sanchez](https://github.com/laurakasanchezgu-oss)
 
 ## Documentación
+En esta práctica de laboratorio se implementó la comunicación de una pantalla LCD 16x2 utilizando un módulo I2C basado en el integrado PCF8574. Este módulo permite reducir la cantidad de pines necesarios para controlar la pantalla, pasando de múltiples líneas de datos en modo paralelo a solo dos líneas de comunicación: SDA (datos) y SCL (reloj), El sistema fue desarrollado empleando un microcontrolador, el cual se encargó de gestionar la comunicación I2C mediante la configuración de sus periféricos internos. Se utilizaron funciones específicas para inicializar el protocolo, enviar datos y mostrar información en la pantalla LCD, El objetivo principal fue visualizar información en la pantalla, como mensajes y porcentajes de carga, simulando aplicaciones reales como indicadores de estado o sistemas embebidos de monitoreo.
+
+## Objetivos
+### Objetivo general
+
+Desarrollar un sistema de visualización utilizando una pantalla LCD 16x2 con comunicación I2C, controlada mediante un microcontrolador.
+
+### Objetivos especificos
+
+
 
 
 ## Diagramas
