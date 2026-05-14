@@ -3,8 +3,16 @@
 # Lab06: Comunicación UART con PIC18F45K22
 
 ## Integrantes
+*[Andrés Felipe Muñoz Martinéz](https://github.com/Andresfmm2007)
+
+ *[Paula Andrea Cortés Espinosa](https://github.com/Cortes271)
+
+ *[Reny Alexander Roncancio](https://github.com/renyroncancio-glitch)
+
+ *[Laura Katerin Sanchez](https://github.com/laurakasanchezgu-oss)
 
 ## Documentación
+
 
 ## Diagramas
 
