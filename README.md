@@ -12,43 +12,40 @@
  *[Laura Katerin Sanchez](https://github.com/laurakasanchezgu-oss)
 
 ## Documentación
-En esta práctica se implementó el control de una pantalla LCD 16x2 mediante comunicación I2C con un microcontrolador, lo que permitió reducir el uso de pines y simplificar el cableado gracias al uso de un adaptador I2C. Se configuraron los registros necesarios y se desarrollaron funciones para enviar datos y mostrar información en la pantalla, como mensajes y porcentajes, Además, se trabajó con la comunicación serial UART entre un microcontrolador PIC y un computador, permitiendo el envío de datos para su visualización en una gráfica en Python. Esto facilitó el análisis del comportamiento de señales en función del tiempo;En conjunto, la práctica permitió comprender el funcionamiento de los protocolos I2C y UART, así como su aplicación en la visualización y transmisión de datos.
+En esta práctica se trabajó con el microcontrolador PIC18F45K22 para realizar comunicación serial UART con un computador. El montaje se realizó sobre una protoboard, conectando cada componente de manera adecuada para lograr la transmisión y recepción de datos, La comunicación UART permitió enviar información desde el PIC hacia el computador mediante un módulo USB-UART. Posteriormente, los datos recibidos fueron procesados en Python para generar una gráfica de voltaje en función del tiempo, facilitando el análisis de la señal transmitida, Con esta práctica se logró comprender de una manera más clara cómo funciona la comunicación serial UART y cómo puede utilizarse para el monitoreo y transmisión de datos en sistemas electrónicos.
 
 
 ## Objetivos
 ### Objetivo general
 
-Desarrollar un sistema de visualización utilizando una pantalla LCD 16x2 con comunicación I2C, controlada mediante un microcontrolador.
-
+Desarrollar un sistema de transmisión de datos utilizando el microcontrolador PIC18F45K22 y comunicación serial UART.
 ### Objetivos especificos
 
--Comprender el funcionamiento de la comunicación UART.
+Comprender el funcionamiento básico de la comunicación UART.
 
--Configurar la transmisión serial entre el PIC y el computador.
+Configurar la comunicación serial entre el microcontrolador PIC18F45K22 y el computador.
 
--Visualizar información en una pantalla LCD.
+Enviar datos de voltaje desde el PIC hacia el computador.
 
--Recibir datos seriales en Python.
+Recibir y procesar datos seriales en Python.
 
--Generar una gráfica de voltaje vs tiempo.
+Generar una gráfica de voltaje en función del tiempo.
 
--Analizar el comportamiento de la señal transmitida.
+Analizar el comportamiento de la señal transmitida.
 
 ## Procedimiento
 
-Se realizó la conexión del microcontrolador PIC con la pantalla LCD sobre la protoboard.
+Primero se realizó el montaje del circuito sobre la protoboard utilizando el microcontrolador PIC18F45K22 y los componentes necesarios para el funcionamiento del sistema.
 
-Se configuró la comunicación UART utilizando los pines TX y RX del microcontrolador.
+Después se configuraron los pines TX y RX del microcontrolador para establecer la comunicación UART.
 
-Se programó el PIC para enviar datos seriales continuamente al computador.
+Una vez realizadas las conexiones, se programó el microcontrolador para enviar datos seriales continuamente al computador.
 
-Se conectó el módulo USB-UART al computador para permitir la transmisión serial.
+Luego se conectó el módulo USB-UART al computador para permitir la transmisión de datos seriales entre ambos dispositivos.
 
-En Python se configuró la lectura de datos enviados mediante UART.
+En Python se configuró la lectura de los datos enviados por el PIC a través del puerto serial. Con estos datos se generó una gráfica de voltaje contra tiempo para observar el comportamiento de la señal.
 
-Se generó una gráfica de voltaje contra tiempo utilizando los datos recibidos.
-
-Finalmente, se analizó el comportamiento de la señal obtenida.
+Finalmente, se analizaron los resultados obtenidos y el funcionamiento de la comunicación UART durante la transmisión de datos.
 
 ## Diagramas interno
 
@@ -76,25 +73,29 @@ Habilitación de interrupción de transmisión (PIE1_bit4_R/W): 1→Habilitado, 
 
 Flag de interrupción de transmisión (PIR1_bit4_R/W): 1→Buffer de datos vacío, 0→ Deshabilitado.
 
+
 ## Diagramas del montaje 
 
-<img width="1389" height="1132" alt="image" src="https://github.com/user-attachments/assets/226d9863-49e4-4f20-8f71-b12fe70920fa" />
+<img width="1600" height="702" alt="image" src="https://github.com/user-attachments/assets/2838ba10-6c93-436b-bace-6d9968866ee8" />
+
+Durante el desarrollo del proyecto se realizó correctamente el montaje de un sistema de comunicación UART utilizando el microcontrolador PIC18F45K22 y un módulo USB-TTL sobre protoboard. Se logró establecer la comunicación serial entre el microcontrolador y el computador, permitiendo transmitir y visualizar información de manera adecuada.
+
+Además, se comprobó el correcto funcionamiento de las conexiones y de la configuración del microcontrolador mediante el envío continuo de datos seriales. El uso del protocolo UART permitió transmitir información de forma simple y eficiente utilizando los pines TX y RX del PIC.
+
+Los datos recibidos en el computador fueron procesados en Python para observar el comportamiento de la señal transmitida, permitiendo analizar la variación del voltaje en función del tiempo.
 
 
-
-Durante el desarrollo del proyecto se realizó correctamente el montaje de un sistema de comunicación UART utilizando el microcontrolador PIC18f45k22, una pantalla LCD 16x2 y un módulo USB-TTL sobre protoboard. Se logró establecer la comunicación serial entre el microcontrolador y el computador, permitiendo transmitir y visualizar información de manera adecuada.
-
-Además, la pantalla LCD mostró correctamente los mensajes programados, demostrando el funcionamiento adecuado de las conexiones y de la configuración del microcontrolador. El uso del protocolo UART permitió enviar datos de forma simple y eficiente mediante los pines TX y RX.
 ## Diagrama en python 
 
 <img width="1628" height="966" alt="image" src="https://github.com/user-attachments/assets/ce5c6440-fe3e-4f47-8a88-926a2cf76572" />
 
 
-Por otra parte, la gráfica obtenida permitió analizar el comportamiento de la señal transmitida. Se observó una variación periódica del voltaje entre 0V y 5V con forma de diente de sierra, lo cual indica que el sistema estaba generando y enviando datos continuamente durante el tiempo de prueba.
+Por otra parte, la gráfica obtenida permitió analizar el comportamiento de la señal transmitida. Se observó una variación periódica del voltaje entre 0 V y 5 V con forma de diente de sierra, lo cual indica que el sistema estaba generando y enviando datos continuamente durante el tiempo de prueba.
 
-Este proyecto permitió comprender de manera práctica el funcionamiento de la comunicación serial UART, la conexión de dispositivos electrónicos en protoboard y el uso de pantallas LCD para visualizar información. También ayudó a fortalecer conocimientos sobre programación de microcontroladores, transmisión de datos y análisis de señales eléctricas mediante gráficas.
+Este proyecto permitió comprender de manera práctica el funcionamiento de la comunicación serial UART, la conexión de dispositivos electrónicos en protoboard y la transmisión de datos entre el microcontrolador y el computador. También ayudó a fortalecer conocimientos sobre programación de microcontroladores, comunicación serial y análisis de señales eléctricas mediante gráficas.
 
-Finalmente, se concluye que el sistema funcionó correctamente, cumpliendo con los objetivos propuestos y demostrando la importancia de la comunicación serial en aplicaciones electrónicas y sistemas
+Se concluye que el sistema funcionó correctamente, cumpliendo con los objetivos propuestos y demostrando la importancia de la comunicación serial en aplicaciones electrónicas y sistemas de monitoreo de datos.
+
 ## Documentacion del codigo
 ## Configuración del microcontrolador (MAIN)
 
